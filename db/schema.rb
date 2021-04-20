@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_20_031027) do
+ActiveRecord::Schema.define(version: 2021_04_20_051819) do
+
+  create_table "attempts", force: :cascade do |t|
+    t.string "status"
+    t.integer "monitoring_setting_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["monitoring_setting_id"], name: "index_attempts_on_monitoring_setting_id"
+  end
+
+  create_table "monitoring_settings", force: :cascade do |t|
+    t.string "url"
+    t.string "verification_timing"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "user_and_monitoring_settings", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "monitoring_setting_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["monitoring_setting_id"], name: "index_user_and_monitoring_settings_on_monitoring_setting_id"
+    t.index ["user_id"], name: "index_user_and_monitoring_settings_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "provider", default: "email", null: false
@@ -37,4 +61,7 @@ ActiveRecord::Schema.define(version: 2021_04_20_031027) do
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true
   end
 
+  add_foreign_key "attempts", "monitoring_settings"
+  add_foreign_key "user_and_monitoring_settings", "monitoring_settings"
+  add_foreign_key "user_and_monitoring_settings", "users"
 end

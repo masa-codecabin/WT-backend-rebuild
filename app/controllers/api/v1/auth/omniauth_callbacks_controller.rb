@@ -34,7 +34,6 @@ module Api
             else
               # @resource.credentials = auth_hash["credentials"]
 
-              # わかりやすい様に開発時はjsonとして結果を返す
               render json: @resource, status: :ok
             end
           end
