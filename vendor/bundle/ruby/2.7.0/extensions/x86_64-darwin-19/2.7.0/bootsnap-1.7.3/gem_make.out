@@ -1,0 +1,15 @@
+current directory: /Users/mk/WT-backend-rebuild/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.3/ext/bootsnap
+/Users/mk/.rbenv/versions/2.7.3/bin/ruby -I /Users/mk/.rbenv/versions/2.7.3/lib/ruby/site_ruby/2.7.0 -r ./siteconf20210420-7549-vsz4vy.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mk/WT-backend-rebuild/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\= clean
+
+current directory: /Users/mk/WT-backend-rebuild/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\=
+compiling bootsnap.c
+linking shared-object bootsnap/bootsnap.bundle
+
+current directory: /Users/mk/WT-backend-rebuild/vendor/bundle/ruby/2.7.0/gems/bootsnap-1.7.3/ext/bootsnap
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 bootsnap.bundle ./.gem.20210420-7549-5s60y5/bootsnap

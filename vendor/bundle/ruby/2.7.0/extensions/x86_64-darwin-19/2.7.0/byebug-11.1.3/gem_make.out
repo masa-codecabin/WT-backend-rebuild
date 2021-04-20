@@ -1,0 +1,19 @@
+current directory: /Users/mk/WT-backend-rebuild/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+/Users/mk/.rbenv/versions/2.7.3/bin/ruby -I /Users/mk/.rbenv/versions/2.7.3/lib/ruby/site_ruby/2.7.0 -r ./siteconf20210420-7549-rbgip2.rb extconf.rb
+creating Makefile
+
+current directory: /Users/mk/WT-backend-rebuild/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= clean
+
+current directory: /Users/mk/WT-backend-rebuild/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\=
+compiling breakpoint.c
+compiling byebug.c
+compiling context.c
+compiling locker.c
+compiling threads.c
+linking shared-object byebug/byebug.bundle
+
+current directory: /Users/mk/WT-backend-rebuild/vendor/bundle/ruby/2.7.0/gems/byebug-11.1.3/ext/byebug
+make DESTDIR\= install
+/usr/local/bin/ginstall -c -m 0755 byebug.bundle ./.gem.20210420-7549-1bja5o2/byebug
