@@ -11,6 +11,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 gem "devise"
 gem "devise_token_auth"
+gem 'devise_invitable' #Automatically create invitation functions.
 gem 'omniauth', '1.9.1'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
@@ -26,6 +27,8 @@ gem 'dotenv-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'whenever', require: false
+gem 'roo'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 gem 'rack-cors'
