@@ -14,6 +14,8 @@ gem "devise_token_auth"
 gem 'devise_invitable' #Automatically create invitation functions.
 gem 'omniauth', '1.9.1'
 gem 'omniauth-twitter'
+gem 'omniauth-facebook' #Authentication on Facebook
+gem 'omniauth-google-oauth2' #Authentication on Google
 gem 'dotenv-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 # gem 'jbuilder', '~> 2.7'

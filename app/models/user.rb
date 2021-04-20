@@ -8,6 +8,6 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable,
-         :omniauthable, omniauth_providers: [:twitter]
+         :omniauthable, omniauth_providers: [:twitter, :facebook, :google_oauth2]
   include DeviseTokenAuth::Concerns::User
 end
