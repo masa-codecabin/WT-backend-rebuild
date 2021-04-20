@@ -11,7 +11,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 4.1'
 gem "devise"
 gem "devise_token_auth"
-gem 'omniauth'
+gem 'omniauth', '1.9.1'
 gem 'omniauth-twitter'
 gem 'dotenv-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
