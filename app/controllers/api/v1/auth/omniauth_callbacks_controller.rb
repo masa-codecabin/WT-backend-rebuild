@@ -19,7 +19,7 @@ module Api
           def get_resource_from_auth_hash
             super
              # @resource.credentials = auth_hash["credentials"]
-            clean_resource
+            # clean_resource
           end
 
           def render_data_or_redirect(message, data, user_data = {})
@@ -38,13 +38,13 @@ module Api
             end
           end
 
-          def clean_resource
-            @resource.name = strip_emoji(@resource.name)
-            @resource.nickname = strip_emoji(@resource.nickname)
-          end
-          def strip_emoji(str)
-            str.encode('SJIS', 'UTF-8', invalid: :replace, undef: :replace, replace: '').encode('UTF-8')
-          end
+          # def clean_resource
+          #   @resource.name = strip_emoji(@resource.name)
+          #   @resource.nickname = strip_emoji(@resource.nickname)
+          # end
+          # def strip_emoji(str)
+          #   str.encode('SJIS', 'UTF-8', invalid: :replace, undef: :replace, replace: '').encode('UTF-8')
+          # end
       end
     end
   end
