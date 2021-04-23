@@ -36,8 +36,9 @@ namespace :monitoring_task do
           status: "fales",
           monitoring_setting_id: m.id,
         )
-        user =　User.find(params[:id])
-        FailureNoticeMailer.send_failure_notice(m.url, user.email).deliver
+        m.users.each do |user|
+         FailureNoticeMailer.send_failure_notice(m.url, user.email).deliver
+        end
       end
    end
   end
@@ -54,8 +55,9 @@ namespace :monitoring_task do
           status: "fales",
           monitoring_setting_id: m.id,
         )
-        user =　User.find(params[:id])
-        FailureNoticeMailer.send_failure_notice(m.url, user.email).deliver
+        m.users.each do |user|
+          FailureNoticeMailer.send_failure_notice(m.url, user.email).deliver
+        end
       end
    end
   end
@@ -72,8 +74,9 @@ namespace :monitoring_task do
           status: "fales",
           monitoring_setting_id: m.id,
         )
-        user =　User.find(params[:id])
-        FailureNoticeMailer.send_failure_notice(m.url, user.email).deliver
+        m.users.each do |user|
+          FailureNoticeMailer.send_failure_notice(m.url, user.email).deliver
+        end
       end
    end
   end

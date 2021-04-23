@@ -1,13 +1,22 @@
 class Api::V1::MonitoringSettingsController < ApplicationController
+  skip_before_action :verify_authenticity_token
   def index
   end
 
   def show
+    begin
+      monitoring_setting = MonitoringSetting.find(params[:id])
+      attempts = monitoring_setting.attempts
+      render json: {:success => true, :monitoring_setting => monitoring_setting, :attempts => attempts}
+    rescue StandardError => error
+      render json: {:success => false, :msg => error.message}
+    end
   end
 
   def create
-    monitoring_setting = MonitoringSetting.new(monitoring_setting_params)
-    if monitoring_setting.save
+    user = User.find(params[:id])
+    monitoring_setting = user.monitoring_settings.new(monitoring_setting_params)
+    if user.save
       render json: monitoring_setting, status: :created
     else
       render json: monitoring_setting.errors, status: :unprocessable_entity
@@ -40,7 +49,7 @@ class Api::V1::MonitoringSettingsController < ApplicationController
   private
 
     def monitoring_setting_params
-      params.permit(:url, :verification_timing, :user_id)
+      params.require(:monitoring_setting).permit(:url, :verification_timing, :user_id)
     end
 
     def update_monitoring_setting_params

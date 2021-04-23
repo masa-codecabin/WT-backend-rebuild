@@ -15,9 +15,22 @@ class Api::V1::AttemptsController < ApplicationController
   end
 
   def update
+    attempt = Attempt.find(params[:id])
+    if attempt.update_attributes(attempt_params)
+      render json: attempt
+    else
+      render json: attempt.errors, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    begin
+      attempt = Attempt.find(params[:id])
+      attempt.destroy
+      render json: {:success => true, :attempt => attempt}
+    rescue StandardError => error
+      render json: {:success => false, :msg => error.message}
+    end
   end
 
   def manual_attempt_update #run tasks after push "Manual Check" button
@@ -35,5 +48,9 @@ class Api::V1::AttemptsController < ApplicationController
 
     def attempt_params
       params.permit(:status, :monitoring_setting_id)
+    end
+
+    def update_attempt_params
+      params.permit(:status)
     end
 end

@@ -13,9 +13,8 @@ class Api::V1::UsersController < ApplicationController
   def show
     begin
       user = User.find(params[:id])
-      monitoring_settings = MonitoringSetting.where(user_id: current_api_user)
-      verification_timing = { every_10minutes: "10minutes", every_hour: "hour", every_3hours: "3hours" }
-      render json: {:success => true, :user => user, :monitoring_settings => monitoring_settings, :verification_timing => verification_timing}
+      monitoring_settings = user.monitoring_settings
+      render json: {:success => true, :user => user, :monitoring_settings => monitoring_settings}
     rescue StandardError => error
       render json: {:success => false, :msg => error.message}
     end
